@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">VoyageApp</string>
+    <string name="user">
+        Melou
+    </string>
+
+    <string name="let_s_start">Simplifiez votre quotidien avec nos services !</string>
+    <string name="chercher_vi">chercher place</string>
+    <string name="home">Home</string>
+    <string name="restaurants">
+        Restaurants
+    </string>
+    <string name="r_nitialisation_de_mot_de_passe">Rénitialisation de mot de passe</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="profile">Profile</string>
+    <string name="favori">Favori</string>
+    <string name="profil">Profil</string>
+    <string name="accueil">Accueil</string>
+    <string name="mus_es">Musées</string>
+    <string name="park">Park</string>
+    <string name="activit_es">activitées</string>
+
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="user">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#1B1E28</item>
+    </style>
+    <style name="let_s_start">
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">#1B1E28</item>
+    </style>
+
+    <style name="chercher_vi">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#1B1E28</item>
+    </style>
+    <style name="hotel">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#0D6EFD</item>
+    </style>
+    <style name="diamant_ver">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">#1B1E28</item>
+    </style>
+    <style name="home">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#0D6EFD</item>
+    </style>
+    <style name="restaurants">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#2A2A2A</item>
+    </style>
+</resources>

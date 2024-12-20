@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:contentDescription="Liste des lieux suggérés"
+    tools:context=".SeeAll"
+    android:background="@drawable/home">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <ImageButton
+            android:id="@+id/icon_left"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/retour"
+            android:background="@drawable/elypse"
+            android:contentDescription="Retour"/>
+
+        <GridLayout
+            android:id="@+id/items_container"
+            android:layout_width="match_parent"
+            android:layout_marginTop="140dp"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:horizontalSpacing="8dp"
+            android:verticalSpacing="8dp" />
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989876161641",
+    "project_id": "projetvoyage-e3e27",
+    "storage_bucket": "projetvoyage-e3e27.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989876161641:android:58fb5ba46fa53042d3a6f8",
+        "android_client_info": {
+          "package_name": "com.example.voyageapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJPz7-CYzjm3TvhX4zY_F3l6FynqXkceg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
