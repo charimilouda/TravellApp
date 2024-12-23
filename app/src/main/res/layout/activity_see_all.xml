@@ -9,7 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_marginRight="6dp"
+        >
         <ImageButton
             android:id="@+id/icon_left"
             android:layout_width="54dp"

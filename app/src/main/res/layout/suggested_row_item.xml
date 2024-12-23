@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="180dp"
+    android:layout_width="170dp"
     android:layout_height="310dp"
-    android:layout_marginStart="16dp"
-    android:background="@drawable/card_bg"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="6dp"
+    android:background="#40F3ECEC"
     android:elevation="16dp">
 
     <ImageView
@@ -25,8 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
+
         android:fontFamily="@font/poppins_bold"
         android:text="Diamand vert"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/place_image" />
 
@@ -38,6 +41,7 @@
         android:fontFamily="@font/poppins_light"
         android:text="Fes, Maroc"
         android:textColor="#000000"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/place_name"
         app:layout_constraintTop_toBottomOf="@+id/place_name" />
 
@@ -49,6 +53,7 @@
         android:fontFamily="@font/poppins_light"
         android:text="Hotel"
         android:textColor="#000000"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/country_name"
         app:layout_constraintTop_toBottomOf="@+id/country_name"
