@@ -46,20 +46,23 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:srcCompat="@drawable/hotel_demo_img" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/backImage"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/retour"
+                        android:background="@drawable/elypse"
+                        android:contentDescription="retour"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/back" />
 
                     <ImageView
                         android:id="@+id/favImage"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
                         android:layout_marginEnd="16dp"
                         app:layout_constraintBottom_toBottomOf="@+id/backImage"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -91,6 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="CityZen Hotel"
+                        android:fontFamily="@font/poppins_bold"
                         android:textAlignment="center"
                         android:textSize="24sp"
                         android:textStyle="bold" />
@@ -115,8 +119,8 @@
 
                         <ImageView
                             android:id="@+id/imageView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_marginEnd="10dp"
                             app:srcCompat="@drawable/location" />
 
@@ -124,6 +128,7 @@
                             android:id="@+id/lieuAddress"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
                             android:text="8, rue de la République, 75003 Paris"
                             android:textColor="@color/dark_light"
                             android:textSize="16sp" />
@@ -232,6 +237,7 @@
                         android:id="@+id/lieuDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
                         android:text="@string/defaultDescription" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -271,6 +277,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="+212 710895493"
+                            android:fontFamily="@font/poppins_light"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
@@ -309,6 +316,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
+                            android:fontFamily="@font/poppins_light"
                             android:text="facebook"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -348,6 +356,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
                             android:layout_weight="1"
                             android:text="facebook"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -367,6 +376,7 @@
                     android:backgroundTint="@color/bg_btn"
                     android:paddingVertical="5dp"
                     android:text="en savoir plus"
+                    android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
