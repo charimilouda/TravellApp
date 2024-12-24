@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import com.google.android.gms.tasks.Task;
 
 import com.bumptech.glide.Glide;
 
@@ -16,6 +17,9 @@ import com.example.voyageapp.data.model.Favoris;
 import com.example.voyageapp.databinding.ActivityDetailLieuBinding;
 import com.example.voyageapp.viewModel.LieuViewModel;
 import com.example.voyageapp.viewModel.injection.HotelViewModelFactory;
+import com.google.firebase.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailHotelActivity extends AppCompatActivity {
     private ActivityDetailLieuBinding binding;
@@ -66,12 +70,25 @@ public class DetailHotelActivity extends AppCompatActivity {
     private final String apiKey = "e4c34a66df174a229066590ee94189e5";
 
 
+    private DatabaseReference databaseref;
+    // inittialisation FireBase DataBase
+
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityDetailLieuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // initialisation de Firebase
+        databaseref = FirebaseDatabase.getInstance().getReference("favoris").child("1");
+
 
         getIntentExtra();
         setDetailData();
@@ -211,9 +228,7 @@ public class DetailHotelActivity extends AppCompatActivity {
             isFavorite[0] = !isFavorite[0];
             if (isFavorite[0]){
                 binding.favImage.setImageResource(R.drawable.favorie);
-                Toast.makeText(this, "Ajouté aux favoris!", Toast.LENGTH_SHORT).show();
-                lieuViewModel.setFavorisLiveData(favoris);
-                lieuViewModel.setIsNewFavoris(true);
+                addFavoriteToFirebase(favoris);
             }
             else {
                 lieuViewModel.setFavorisLiveData(new Favoris());
@@ -244,6 +259,38 @@ public class DetailHotelActivity extends AppCompatActivity {
 //        } else {
 //            binding.cityTextView.setText(R.string.unknown_city);
 //        }
+    }
+
+    private void addFavoriteToFirebase(Favoris favoris) {
+        // Récupère l'UID de l'utilisateur depuis l'Intent
+        String userId = "1";//getIntent().getStringExtra("USER_ID");
+
+        if (userId == null || userId.isEmpty()) {
+            Toast.makeText(this, "Utilisateur non authentifié", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Référence à la catégorie "hotel" pour cet utilisateur
+         databaseref = FirebaseDatabase.getInstance()
+                .getReference("Favoris")
+                .child(userId)
+                .child("hotel");
+
+        // Génère un ID unique pour chaque favori
+        String favoriteId = databaseref.push().getKey();
+        if (favoriteId == null) {
+            Toast.makeText(this, "Erreur Firebase", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Ajoute les données du favori
+        databaseref.child(favoriteId).setValue(favoris).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(this, "Ajouté aux favoris!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Échec de l'ajout aux favoris", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
