@@ -90,7 +90,7 @@
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/restaurants"
-                        android:src="@drawable/restaurants"
+                        android:src="@drawable/restaurant"
                         >
 
                     </ImageView>
@@ -175,7 +175,7 @@
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/activit_es"
-                        android:src="@drawable/activites"
+                        android:src="@drawable/musem"
                         >
 
                     </ImageView>
@@ -215,7 +215,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/hotels"
+                        android:src="@drawable/park"
                         >
 
                     </ImageView>
@@ -225,7 +225,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="@string/park"
+                        android:text="@string/parc"
                         android:textAlignment="center"
                         android:textSize="20sp">
 
@@ -256,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/activites"
+                        android:src="@drawable/bag"
                         >
 
                     </ImageView>
@@ -268,7 +268,7 @@
                         android:fontFamily="@font/poppins_bold"
                         android:text="centres commerciales"
                         android:textAlignment="center"
-                        android:textSize="17sp">
+                        android:textSize="15sp">
 
                     </TextView>
                 </LinearLayout>
@@ -296,7 +296,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/restaurants"
+                        android:src="@drawable/coffee"
                         >
 
                     </ImageView>
@@ -306,7 +306,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="@string/restaurants"
+                        android:text="café"
                         android:textAlignment="center"
                         android:textSize="20sp">
 

@@ -8,6 +8,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.voyageapp.data.model.Restaurant;
+import com.example.voyageapp.ui.resultats.CafeActivity;
+import com.example.voyageapp.ui.resultats.HotelActivity;
+import com.example.voyageapp.ui.resultats.MuseumActivity;
+import com.example.voyageapp.ui.resultats.ParkActivity;
+import com.example.voyageapp.ui.resultats.RestaurantActivity;
+import com.example.voyageapp.ui.resultats.ShoppingActivity;
+
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView D1,D2,D3,D4,D5,D6 ;
     @Override
@@ -102,23 +110,23 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         double longitude = intent.getDoubleExtra("longitude", 0);
         String category = "";
         if (v.getId() == R.id.d1) {
-            i = new Intent(this, d1.class);
-            category = "restaurants";
+            i = new Intent(this, RestaurantActivity.class);
+            category = "restaurant";
         } else if (v.getId() == R.id.d2) {
-            i = new Intent(this, d2.class);
-            category = "hotels";
+            i = new Intent(this, HotelActivity.class);
+            category = "hotel";
         } else if (v.getId() == R.id.d3) {
-            i = new Intent(this, d3.class);
+            i = new Intent(this, MuseumActivity.class);
             category = "shopping";
         } else if (v.getId() == R.id.d4) {
-            i = new Intent(this, d4.class);
-            category = "parks";
+            i = new Intent(this, ParkActivity.class);
+            category = "park";
         } else if (v.getId() == R.id.d5) {
-            i = new Intent(this, d5.class);
-            category = "musee";
+            i = new Intent(this, ShoppingActivity.class);
+            category = "museum";
         } else if (v.getId() == R.id.d6) {
-            i = new Intent(this, d6.class);
-            category = "centres commerciales";
+            i = new Intent(this, CafeActivity.class);
+            category = "cafe";
         }
         else{
             return; // Aucun ID correspondant, on ne fait rien
