@@ -1,18 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil">
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+    android:background="@drawable/home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="192dp"
-        tools:layout_editor_absoluteY="364dp"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageButton
+                android:id="@+id/buttonReturn"
+                style="none"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:focusable="true"
+                android:src="@drawable/angle_petit_gauche"
+                android:background="@drawable/elypse"
+                android:contentDescription="Retour"
+                app:tint="#333"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/profile"
+                android:textAlignment="center"
+                android:textColor="#1B1C1E"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/buttonEdit"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:contentDescription="Modifier"
+                android:focusable="true"
+                android:src="@drawable/editer_36"
+                android:background="@drawable/elypse"
+                app:tint="#333"
+                android:clickable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewProfile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/femme"
+                android:contentDescription="Avatar"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_bg"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Loubna"
+                android:textStyle="bold"
+                android:textSize="26sp"
+                android:textColor="#1B1C1E"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="Loubna@gmail.com"
+                android:textSize="20sp"
+                android:textColor="#333"
+                android:layout_marginBottom="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/profiledetailslayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="15dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/utilisateur"
+                    android:layout_marginEnd="18dp"
+                    app:tint="#666" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Profile"
+                    android:textSize="20sp"
+                    android:textColor="#1B1C1E"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/angle_petit_droit"
+                    app:tint="#777" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"/>
+
+            <LinearLayout
+                android:id="@+id/placesfavoris"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="15dp"
+                android:layout_marginTop="15dp"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/signet2"
+                    android:layout_marginEnd="18dp"
+                    app:tint="#666" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Favorites"
+                    android:textSize="20sp"
+                    android:textColor="#1B1C1E"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/angle_petit_droit"
+                    app:tint="#777" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

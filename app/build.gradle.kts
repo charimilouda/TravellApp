@@ -53,6 +53,10 @@ dependencies {
     implementation(libs.firebase.auth)
     androidTestImplementation(libs.ext.junit)
     implementation(libs.okhttp)
+    implementation("com.google.firebase:firebase-database:20.2.2")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation ("jp.wasabeef:picasso-transformations:2.4.0")
+
     // Firebase Auth et Analytics
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")

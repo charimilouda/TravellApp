@@ -1,0 +1,53 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/buttonReturn"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/angle_petit_gauche"
+                android:background="@drawable/elypse"
+                android:contentDescription="Retour"
+                android:layout_marginEnd="40dp" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Lieux Favoris"
+                android:textColor="#1B1C1E"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Change LinearLayout to GridLayout for two cards per row -->
+        <GridLayout
+            android:id="@+id/favorites_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true">
+        </GridLayout>
+    </LinearLayout>
+</ScrollView>
