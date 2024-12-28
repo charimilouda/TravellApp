@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/home"
+    android:padding="16dp">
+    <ImageButton
+        android:id="@+id/buttonReturn"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:src="@drawable/angle_petit_gauche"
+        android:background="@drawable/elypse"
+        android:contentDescription="Retour"
+        />
+
+    <!-- Titre de la page d'inscription -->
+
+    <!-- Champ pour l'email -->
+    <TextView
+        android:id="@+id/sign_up_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="110dp"
+        android:text="S'inscrire"
+        android:textSize="28sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/rectangle_8"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+
+        android:textStyle="bold"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="30dp"
+       />
+
+    <!-- Champ pour le mot de passe -->
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:paddingLeft="30dp"
+        android:background="@drawable/rectangle_8"
+        android:importantForAccessibility="yes"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        />
+
+    <!-- Champ pour la confirmation du mot de passe -->
+    <EditText
+        android:id="@+id/confirm_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Confirmer le mot de passe"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="30dp"
+        android:background="@drawable/rectangle_8"
+        android:importantForAccessibility="yes"
+         />
+
+    <!-- Bouton d'inscription -->
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="S'inscrire"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0D6EFD"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Lien vers la page de connexion si l'utilisateur a déjà un compte -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="20dp"
+        android:textAlignment="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/sign_in_link"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Vous avez déjà un compte ?"
+            android:textSize="12sp" />
+
+    <!-- Bouton pour accéder à la page de connexion -->
+    <TextView
+        android:id="@+id/sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="Se connecter"
+        android:textSize="12sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#0D6EFD" />
+    </LinearLayout>
+    <!-- Texte pour connecter avec des réseaux sociaux -->
+    <TextView
+        android:id="@+id/or_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ou connectez-vous avec"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_light"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"/>
+    <!-- Boutons de connexion avec les réseaux sociaux -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <!-- Bouton Google -->
+        <ImageButton
+            android:id="@+id/google_sign_in"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/google"
+            android:contentDescription="connecter avec google"
+            android:scaleType="fitCenter"/>
+
+        <!-- Bouton LinkedIn -->
+        <ImageButton
+            android:id="@+id/linkedin_sign_in"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/linkedin"
+            android:contentDescription="connecter avec linkedin"
+            android:scaleType="fitCenter"/>
+
+        <!-- Bouton Facebook -->
+        <ImageButton
+            android:id="@+id/facebook_sign_in"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/facebook"
+            android:contentDescription="se connecter avec facebook"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
+
+
+</LinearLayout>
