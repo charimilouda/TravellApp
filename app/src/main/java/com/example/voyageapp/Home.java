@@ -59,6 +59,7 @@ public class Home extends AppCompatActivity {
         ImageView profileIconClic = findViewById(R.id.icon_profile2);
         //2attributs autocomplete
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        TextView userCourant=findViewById(R.id.userCourant);
         client = new OkHttpClient();
         // Test de connectivité avec l'API Geoapify
         testApiConnection();

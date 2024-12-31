@@ -33,18 +33,15 @@ public class favoris extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favoris);
-        ImageView homeIcon = findViewById(R.id.icon_home);
-        ImageView homeIconClic = findViewById(R.id.icon_home2);
-        ImageView favoriIcon = findViewById(R.id.icon_favori);
-        ImageView favoriIconClic = findViewById(R.id.icon_favori2);
+        ImageView homeIcon = findViewById(R.id.icon_home2);
         ImageView profileIcon = findViewById(R.id.icon_profile);
-        ImageView profileIconClic = findViewById(R.id.icon_profile2);
+
 
 
         favoritesList = findViewById(R.id.favorites_list);
 
         // Obtenir l'UID de l'utilisateur connecté
-        currentUserId = "1";//currentUser.getUid();
+        currentUserId = currentUser.getUid();
 
         // Référence à la base de données Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("Favoris").child(currentUserId).child("hotel");

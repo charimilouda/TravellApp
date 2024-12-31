@@ -18,6 +18,8 @@ import com.example.voyageapp.databinding.ActivityDetailLieuBinding;
 import com.example.voyageapp.viewModel.LieuViewModel;
 import com.example.voyageapp.viewModel.injection.HotelViewModelFactory;
 import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -72,7 +74,8 @@ public class DetailHotelActivity extends AppCompatActivity {
 
     private DatabaseReference databaseref;
     // inittialisation FireBase DataBase
-
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser ;
 
 
 
@@ -87,7 +90,8 @@ public class DetailHotelActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // initialisation de Firebase
-        databaseref = FirebaseDatabase.getInstance().getReference("favoris").child("1");
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
 
 
         getIntentExtra();
@@ -263,7 +267,7 @@ public class DetailHotelActivity extends AppCompatActivity {
 
     private void addFavoriteToFirebase(Favoris favoris) {
         // Récupère l'UID de l'utilisateur depuis l'Intent
-        String userId = "1";//getIntent().getStringExtra("USER_ID");
+        String userId =currentUser.getUid();
 
         if (userId == null || userId.isEmpty()) {
             Toast.makeText(this, "Utilisateur non authentifié", Toast.LENGTH_SHORT).show();

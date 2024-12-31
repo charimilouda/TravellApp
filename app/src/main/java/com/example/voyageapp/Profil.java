@@ -2,6 +2,7 @@ package com.example.voyageapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -41,12 +42,8 @@ public class Profil extends AppCompatActivity {
         textViewEmail = findViewById(R.id.textViewEmail);
         imageViewProfile = findViewById(R.id.imageViewProfile);
         //buttonReturn = findViewById(R.id.buttonReturn);
-         homeIcon = findViewById(R.id.icon_home);
-        ImageView homeIconClic = findViewById(R.id.icon_home2);
+         homeIcon = findViewById(R.id.icon_home2);
         ImageView favoriIcon = findViewById(R.id.icon_favori);
-        ImageView favoriIconClic = findViewById(R.id.icon_favori2);
-        ImageView profileIcon = findViewById(R.id.icon_profile);
-        ImageView profileIconClic = findViewById(R.id.icon_profile2);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
@@ -56,14 +53,15 @@ public class Profil extends AppCompatActivity {
             finish();
         } else {
             // Référence Firebase Database pour l'utilisateur connecté
-            String userId ="1";// currentUser.getUid();
+            /*String userId ="1";// currentUser.getUid();
             userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
 
             // Récupération des données utilisateur
             fetchUserData();
 
         }*/
-        String userId ="1";// currentUser.getUid();
+        assert currentUser != null;
+        String userId = currentUser.getUid();
         userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
         fetchUserData();
         setupButtonListeners();
@@ -73,9 +71,10 @@ public class Profil extends AppCompatActivity {
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.d("Navigation", "Navigating to Home");
                 // Rediriger vers l'Activity home
                 Intent intent = new Intent(Profil.this, Home.class);
+                Log.d("non", "Navign non Home");
                 startActivity(intent);
             }
         });
