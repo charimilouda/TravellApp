@@ -1,6 +1,6 @@
 package com.example.voyageapp;
 
-public class UserClass {
+public class     UserClass {
 
     private String Email;
     private String Emplacement;

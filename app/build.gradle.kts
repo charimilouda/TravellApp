@@ -59,6 +59,7 @@ dependencies {
 
     // Firebase Auth et Analytics
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-auth:23.1.0") // Vérifie la dernière version
     implementation("com.google.firebase:firebase-analytics")
 
     implementation (libs.firebase.database)

@@ -293,4 +293,6 @@ public class DetailHotelActivity extends AppCompatActivity {
         });
     }
 
+
+
 }
