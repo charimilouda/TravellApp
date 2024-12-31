@@ -169,8 +169,15 @@ public class DetailHotelActivity extends AppCompatActivity {
         }
 
 
+        if(this.description!=null){
+            binding.lieuDescription.setText(this.description);
 
-        binding.lieuDescription.setText(this.description);
+        }
+
+        if(this.openingHours!=null){
+            binding.lieuOpeningHours.setText(this.openingHours);
+        }
+
 
 
 
