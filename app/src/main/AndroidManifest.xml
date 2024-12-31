@@ -51,24 +51,6 @@
             android:name=".CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".d6"
-            android:exported="false" />
-        <activity
-            android:name=".d5"
-            android:exported="false" />
-        <activity
-            android:name=".d4"
-            android:exported="false" />
-        <activity
-            android:name=".d3"
-            android:exported="false" />
-        <activity
-            android:name=".d2"
-            android:exported="false" />
-        <activity
-            android:name=".d1"
-            android:exported="false" />
-        <activity
             android:name=".Login"
             android:exported="false" />
         <activity

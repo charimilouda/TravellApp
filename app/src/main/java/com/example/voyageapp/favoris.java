@@ -1,5 +1,6 @@
 package com.example.voyageapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,11 +33,18 @@ public class favoris extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favoris);
+        ImageView homeIcon = findViewById(R.id.icon_home);
+        ImageView homeIconClic = findViewById(R.id.icon_home2);
+        ImageView favoriIcon = findViewById(R.id.icon_favori);
+        ImageView favoriIconClic = findViewById(R.id.icon_favori2);
+        ImageView profileIcon = findViewById(R.id.icon_profile);
+        ImageView profileIconClic = findViewById(R.id.icon_profile2);
+
 
         favoritesList = findViewById(R.id.favorites_list);
 
         // Obtenir l'UID de l'utilisateur connecté
-        currentUserId = currentUser.getUid();
+        currentUserId = "1";//currentUser.getUid();
 
         // Référence à la base de données Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("Favoris").child(currentUserId).child("hotel");
@@ -44,9 +52,26 @@ public class favoris extends AppCompatActivity {
         // Charger les données
         loadFavorites();
 
-        // Bouton de retour
-        ImageButton buttonReturn = findViewById(R.id.buttonReturn);
-        buttonReturn.setOnClickListener(v -> finish());
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Rediriger vers l'Activity home
+                Intent intent = new Intent(favoris.this, Home.class);
+                startActivity(intent);
+            }
+        });
+
+        // Listener pour l'ImageView
+        profileIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Rediriger vers l'Activity Profile
+                Intent intent = new Intent(favoris.this, Profil.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadFavorites() {

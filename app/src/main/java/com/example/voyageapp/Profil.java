@@ -2,6 +2,7 @@ package com.example.voyageapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,9 +25,9 @@ import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 public class Profil extends AppCompatActivity {
 
     private TextView textViewName, textViewEmail;
-    private ImageView imageViewProfile;
+    private ImageView imageViewProfile,homeIcon;
     private DatabaseReference userRef;
-    ImageButton buttonReturn ;
+    //ImageButton buttonReturn ;
     FirebaseAuth mAuth;
     FirebaseUser currentUser ;
 
@@ -39,27 +40,56 @@ public class Profil extends AppCompatActivity {
         textViewName = findViewById(R.id.textViewName);
         textViewEmail = findViewById(R.id.textViewEmail);
         imageViewProfile = findViewById(R.id.imageViewProfile);
-        buttonReturn = findViewById(R.id.buttonReturn);
-
+        //buttonReturn = findViewById(R.id.buttonReturn);
+         homeIcon = findViewById(R.id.icon_home);
+        ImageView homeIconClic = findViewById(R.id.icon_home2);
+        ImageView favoriIcon = findViewById(R.id.icon_favori);
+        ImageView favoriIconClic = findViewById(R.id.icon_favori2);
+        ImageView profileIcon = findViewById(R.id.icon_profile);
+        ImageView profileIconClic = findViewById(R.id.icon_profile2);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        if (currentUser == null) {
+       /* if (currentUser == null) {
             // Si aucun utilisateur n'est connecté, rediriger vers l'écran de connexion
          //   startActivity(new Intent(Profil.this, LoginActivity.class));
             finish();
         } else {
             // Référence Firebase Database pour l'utilisateur connecté
-            String userId = currentUser.getUid();
+            String userId ="1";// currentUser.getUid();
             userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
 
             // Récupération des données utilisateur
             fetchUserData();
-        }
 
+        }*/
+        String userId ="1";// currentUser.getUid();
+        userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
         fetchUserData();
-
         setupButtonListeners();
+
+
+
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Rediriger vers l'Activity home
+                Intent intent = new Intent(Profil.this, Home.class);
+                startActivity(intent);
+            }
+        });
+        // Listener pour l'ImageView
+        favoriIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Rediriger vers l'Activity favorites
+                Intent intent = new Intent(Profil.this, favoris.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void fetchUserData() {
@@ -96,7 +126,7 @@ public class Profil extends AppCompatActivity {
         LinearLayout profiledetails = findViewById(R.id.profiledetailslayout);
         LinearLayout placesfavoris = findViewById(R.id.placesfavoris);
 
-        buttonReturn.setOnClickListener(view -> finish());
+
         buttonEdit.setOnClickListener(view -> {
             Intent intent = new Intent(Profil.this, editprofil.class);
             startActivity(intent);

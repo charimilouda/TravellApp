@@ -57,14 +57,9 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                homeIcon.setVisibility(View.GONE);
-                homeIconClic.setVisibility(View.VISIBLE);
-                favoriIcon.setVisibility(View.VISIBLE);
-                favoriIconClic.setVisibility(View.GONE);
-                profileIcon.setVisibility(View.VISIBLE);
-                profileIconClic.setVisibility(View.GONE);
+                
                 // Rediriger vers l'Activity home
-                Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
+                Intent intent = new Intent(CategoryActivity.this, Home.class);
                 startActivity(intent);
             }
         });
@@ -72,14 +67,9 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         favoriIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                favoriIcon.setVisibility(View.GONE);
-                favoriIconClic.setVisibility(View.VISIBLE);
-                homeIcon.setVisibility(View.VISIBLE);
-                homeIconClic.setVisibility(View.GONE);
-                profileIcon.setVisibility(View.VISIBLE);
-                profileIconClic.setVisibility(View.GONE);
+
                 // Rediriger vers l'Activity favorites
-                Intent intent = new Intent(CategoryActivity.this, Favori.class);
+                Intent intent = new Intent(CategoryActivity.this, favoris.class);
                 startActivity(intent);
             }
         });
@@ -87,12 +77,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                profileIcon.setVisibility(View.GONE);
-                profileIconClic.setVisibility(View.VISIBLE);
-                favoriIcon.setVisibility(View.VISIBLE);
-                favoriIconClic.setVisibility(View.GONE);
-                homeIcon.setVisibility(View.VISIBLE);
-                homeIconClic.setVisibility(View.GONE);
+
                 // Rediriger vers l'Activity Profile
                 Intent intent = new Intent(CategoryActivity.this, Profil.class);
                 startActivity(intent);

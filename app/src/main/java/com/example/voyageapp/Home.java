@@ -126,49 +126,33 @@ public class Home extends AppCompatActivity {
             //intent.putExtra("placesList", new ArrayList<>(suggestedPlacesList));
             startActivity(intent);
         });
-        // Listener pour l'ImageView
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                homeIcon.setVisibility(View.GONE);
-                homeIconClic.setVisibility(View.VISIBLE);
-                favoriIcon.setVisibility(View.VISIBLE);
-                favoriIconClic.setVisibility(View.GONE);
-                profileIcon.setVisibility(View.VISIBLE);
-                profileIconClic.setVisibility(View.GONE);
-                // Rediriger vers l'Activity home
-                Intent intent = new Intent(Home.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
         // Listener pour l'ImageView
         favoriIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                favoriIcon.setVisibility(View.GONE);
-                favoriIconClic.setVisibility(View.VISIBLE);
-                homeIcon.setVisibility(View.VISIBLE);
-                homeIconClic.setVisibility(View.GONE);
-                profileIcon.setVisibility(View.VISIBLE);
-                profileIconClic.setVisibility(View.GONE);
                 // Rediriger vers l'Activity favorites
-                Intent intent = new Intent(Home.this, Favori.class);
+                Intent intent = new Intent(Home.this, favoris.class);
                 startActivity(intent);
+
+
             }
         });
         // Listener pour l'ImageView
         profileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                profileIcon.setVisibility(View.GONE);
+                // Rediriger vers l'Activity Profile
+                Intent intent = new Intent(Home.this, Profil.class);
+                intent.putExtra("",1);
+                startActivity(intent);
+               /* profileIcon.setVisibility(View.GONE);
                 profileIconClic.setVisibility(View.VISIBLE);
                 favoriIcon.setVisibility(View.VISIBLE);
                 favoriIconClic.setVisibility(View.GONE);
                 homeIcon.setVisibility(View.VISIBLE);
-                homeIconClic.setVisibility(View.GONE);
-                // Rediriger vers l'Activity Profile
-                Intent intent = new Intent(Home.this, Profil.class);
-                startActivity(intent);
+                homeIconClic.setVisibility(View.GONE);*/
+
             }
         });
 
