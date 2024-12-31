@@ -17,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.voyageapp.adapter.SuggestedAdapter;
 import com.example.voyageapp.model.PlacesList;
 import com.example.voyageapp.model.SuggestedPlaces;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.BufferedReader;
@@ -59,7 +62,7 @@ public class Home extends AppCompatActivity {
         ImageView profileIconClic = findViewById(R.id.icon_profile2);
         //2attributs autocomplete
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
-        TextView userCourant=findViewById(R.id.userCourant);
+        String userId=getIntent().getStringExtra("userId");
         client = new OkHttpClient();
         // Test de connectivité avec l'API Geoapify
         testApiConnection();
@@ -91,6 +94,7 @@ public class Home extends AppCompatActivity {
                 Intent intent = new Intent(Home.this, CategoryActivity.class);
                 intent.putExtra("latitude", latitude);
                 intent.putExtra("longitude", longitude);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             } catch (Exception e) {
                 Log.e("AutoCompleteError", "Erreur lors de la récupération des données", e);
@@ -157,7 +161,24 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        if (userId != null) {
+                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
 
+                userRef.get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult().exists()) {
+                        String prenom = task.getResult().child("prenom").getValue(String.class);
+                        TextView usercourant = findViewById(R.id.userCourant);
+                        usercourant.setText(prenom != null ? prenom : "Prénom non trouvé");
+                    } else {
+                        Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+
+        } else {
+            Toast.makeText(this, "Aucun ID utilisateur trouvé", Toast.LENGTH_SHORT).show();
+        }
     }
     public void setSuggestedRecycler(List<SuggestedPlaces> suggestedPlaces) {
         suggestedRecycler = findViewById(R.id.recycler_v_suggested);

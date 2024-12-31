@@ -40,7 +40,6 @@ public class Login extends AppCompatActivity {
 
         // Initialisation de FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
-
         // Initialisation des vues
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
@@ -59,11 +58,13 @@ public class Login extends AppCompatActivity {
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             if (user != null) {
                                 // Connexion réussie
                                 Toast.makeText(Login.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
                                 // Redirection vers la page d'accueil ou une autre activité
                                 Intent intent = new Intent(Login.this, Home.class);
+                                intent.putExtra("userId",user.getUid());
                                 startActivity(intent);
                                 finish();
                             }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,6 +16,8 @@ import com.example.voyageapp.ui.resultats.MuseumActivity;
 import com.example.voyageapp.ui.resultats.ParkActivity;
 import com.example.voyageapp.ui.resultats.RestaurantActivity;
 import com.example.voyageapp.ui.resultats.ShoppingActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView D1,D2,D3,D4,D5,D6 ;
@@ -44,14 +47,14 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         ImageView favoriIconClic = findViewById(R.id.icon_favori2);
         ImageView profileIcon = findViewById(R.id.icon_profile);
         ImageView profileIconClic = findViewById(R.id.icon_profile2);
-
+        String userId=getIntent().getStringExtra("userId");
 
         Intent intent = getIntent();
         double latitude = intent.getDoubleExtra("latitude", 0);
         double longitude = intent.getDoubleExtra("longitude", 0);
 
         // Utilisez latitude et longitude ici
-        Toast.makeText(this, "Lat: " + latitude + ", Lon: " + longitude, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Lat: " + latitude + ", Lon: " + longitude, Toast.LENGTH_SHORT).show();
 
         // Listener pour l'ImageView
         homeIcon.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +87,24 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        if (userId != null) {
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
 
+            userRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful() && task.getResult().exists()) {
+                    String prenom = task.getResult().child("prenom").getValue(String.class);
+                    TextView usercourant = findViewById(R.id.userCourant);
+                    usercourant.setText(prenom != null ? prenom : "Prénom non trouvé");
+                } else {
+                    Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(e -> {
+                Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
 
+        } else {
+            Toast.makeText(this, "Aucun ID utilisateur trouvé", Toast.LENGTH_SHORT).show();
+        }
     }
     @Override
     public void onClick(View v){
