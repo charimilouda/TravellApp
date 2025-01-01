@@ -26,7 +26,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@string/profile"
+                android:text="@string/profil"
                 android:textAlignment="center"
                 android:textColor="#1B1C1E"
                 android:textSize="28sp"

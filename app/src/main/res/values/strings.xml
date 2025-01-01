@@ -21,7 +21,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="profile">Profile</string>
-    <string name="favori">Favori</string>
+    <string name="favoris">Favoris</string>
     <string name="profil">Profil</string>
     <string name="accueil">Accueil</string>
     <string name="mus_es">Musées</string>

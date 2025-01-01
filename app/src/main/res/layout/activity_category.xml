@@ -385,7 +385,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/favori2"
-                    android:contentDescription="@string/favori"
+                    android:contentDescription="@string/favoris"
                     android:visibility="gone"/>
 
                 <TextView
@@ -395,7 +395,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="@string/favori"
+                    android:text="@string/favoris"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -430,7 +430,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="@string/profile"
+                    android:text="@string/profil"
                     android:textSize="12sp" />
             </LinearLayout>
 
