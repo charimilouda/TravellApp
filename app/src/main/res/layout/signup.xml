@@ -113,18 +113,17 @@
             android:textSize="12sp" />
 
     <!-- Bouton pour accéder à la page de connexion -->
-    <TextView
-        android:id="@+id/sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:text="Se connecter"
-        android:textSize="12sp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="#0D6EFD" />
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="108dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Se connecter"
+            android:textColor="#0D6EFD"
+            android:textSize="12sp" />
     </LinearLayout>
     <!-- Texte pour connecter avec des réseaux sociaux -->
     <TextView

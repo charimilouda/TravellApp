@@ -87,7 +87,7 @@ public class signup extends AppCompatActivity {
                                 if (dbTask.isSuccessful()) {
                                     Toast.makeText(signup.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
                                     // Redirection vers la page de connexion ou d'accueil
-                                    Intent intent = new Intent(signup.this, Login.class);
+                                    Intent intent = new Intent(signup.this, Home.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
