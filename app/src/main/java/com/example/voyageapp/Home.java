@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.voyageapp.adapter.SuggestedAdapter;
 import com.example.voyageapp.model.PlacesList;
 import com.example.voyageapp.model.SuggestedPlaces;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -48,7 +50,8 @@ public class Home extends AppCompatActivity {
     private static final String GEOAPIFY_API_KEY = "6e8d1afd50c748398154bb1fa279c11c";
     // Ajoutez cette liste pour stocker les coordonnées des lieux proposés
     private List<JSONObject> suggestedPlacesDetails = new ArrayList<>();
-
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,9 @@ public class Home extends AppCompatActivity {
         ImageView profileIconClic = findViewById(R.id.icon_profile2);
         //2attributs autocomplete
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
-        String userId=getIntent().getStringExtra("userId");
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
         client = new OkHttpClient();
         // Test de connectivité avec l'API Geoapify
         testApiConnection();
@@ -94,7 +99,6 @@ public class Home extends AppCompatActivity {
                 Intent intent = new Intent(Home.this, CategoryActivity.class);
                 intent.putExtra("latitude", latitude);
                 intent.putExtra("longitude", longitude);
-                intent.putExtra("userId",userId);
                 startActivity(intent);
             } catch (Exception e) {
                 Log.e("AutoCompleteError", "Erreur lors de la récupération des données", e);
@@ -149,7 +153,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 // Rediriger vers l'Activity Profile
                 Intent intent = new Intent(Home.this, Profil.class);
-                intent.putExtra("",1);
+                //intent.putExtra("",1);
                 startActivity(intent);
                /* profileIcon.setVisibility(View.GONE);
                 profileIconClic.setVisibility(View.VISIBLE);
@@ -160,25 +164,21 @@ public class Home extends AppCompatActivity {
 
             }
         });
+        String userId= currentUser.getUid();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
 
-        if (userId != null) {
-                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
+        userRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful() && task.getResult().exists()) {
+                String prenom = task.getResult().child("prenom").getValue(String.class);
+                TextView usercourant = findViewById(R.id.userCourant);
+                usercourant.setText(prenom != null ? prenom : "Prénom non trouvé");
+            } else {
+                Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        });
 
-                userRef.get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && task.getResult().exists()) {
-                        String prenom = task.getResult().child("prenom").getValue(String.class);
-                        TextView usercourant = findViewById(R.id.userCourant);
-                        usercourant.setText(prenom != null ? prenom : "Prénom non trouvé");
-                    } else {
-                        Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(e -> {
-                    Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-
-        } else {
-            Toast.makeText(this, "Aucun ID utilisateur trouvé", Toast.LENGTH_SHORT).show();
-        }
     }
     public void setSuggestedRecycler(List<SuggestedPlaces> suggestedPlaces) {
         suggestedRecycler = findViewById(R.id.recycler_v_suggested);

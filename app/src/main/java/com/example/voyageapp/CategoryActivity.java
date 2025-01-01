@@ -16,11 +16,15 @@ import com.example.voyageapp.ui.resultats.MuseumActivity;
 import com.example.voyageapp.ui.resultats.ParkActivity;
 import com.example.voyageapp.ui.resultats.RestaurantActivity;
 import com.example.voyageapp.ui.resultats.ShoppingActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView D1,D2,D3,D4,D5,D6 ;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,11 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         ImageView favoriIconClic = findViewById(R.id.icon_favori2);
         ImageView profileIcon = findViewById(R.id.icon_profile);
         ImageView profileIconClic = findViewById(R.id.icon_profile2);
-        String userId=getIntent().getStringExtra("userId");
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        String userId= currentUser.getUid();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
+
 
         Intent intent = getIntent();
         double latitude = intent.getDoubleExtra("latitude", 0);
@@ -87,8 +95,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        if (userId != null) {
-            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("utilisateur").child(userId);
+        {
 
             userRef.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful() && task.getResult().exists()) {
@@ -102,8 +109,6 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
             });
 
-        } else {
-            Toast.makeText(this, "Aucun ID utilisateur trouvé", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
