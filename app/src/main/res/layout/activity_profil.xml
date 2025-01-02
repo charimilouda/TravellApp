@@ -114,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Profile"
+                    android:text="Profil"
                     android:textSize="20sp"
                     android:textColor="#1B1C1E"/>
 
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_light"
-                    android:text="Favorites"
+                    android:text="Favoris"
                     android:textSize="20sp"
                     android:textColor="#1B1C1E"/>
 
@@ -208,7 +208,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
-                android:text="Home"
+                android:text="Acceuil"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -240,7 +240,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
-                android:text="Favori"
+                android:text="Favoris"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -272,7 +272,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
-                android:text="Profile"
+                android:text="Profil"
                 android:textSize="12sp" />
         </LinearLayout>
 
