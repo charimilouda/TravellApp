@@ -41,7 +41,7 @@
 
             <TextView
                 android:id="@+id/buttonSave"
-                android:text="Done"
+                android:text="Valider"
                 android:textAlignment="center"
                 android:layout_width="54dp"
                 android:layout_height="44dp"
